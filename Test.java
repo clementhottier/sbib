@@ -3,12 +3,14 @@ public class Test {
     String tabAuthor[] = {"Marshall","Robin"};
     String tabKey[] = {"Modeling","Galaxy"};
     String allAuthor = "{{Bovy}, J. and {Rix}, H.-W. and {Green}, G.~M. and {Schlafly}, E.~F. and \n{Finkbeiner}, D.~P.}";
+    String allKey = "{dust, extinction, Galaxy: kinematics and dynamics, Galaxy:\nstructure, methods: data analysis, stars: statistics, surveys}";
     BibEntry article = new BibEntry(tabAuthor,"Modeling The Galaxy",2006,"AA",tabKey,"www.ads.com");
 
 
     BibEntry art = new BibEntry();
     art.setAuthor(allAuthor);
-    for (String i : art.getAuthor()){
+    art.setKeyword(allKey);
+    for (String i : art.getKeyword()){
       System.out.println(i);
     }
   }

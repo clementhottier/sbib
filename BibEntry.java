@@ -60,8 +60,18 @@ public class BibEntry {
   }
 
   public void setKeyword(String[] keyword) {
-    //TODO : make another setter wich take only one string and cut it 
     this.keyword = keyword;
+  }
+
+  public void setKeyword(String allKeyword){
+    // this setter is in order to set keyword from long string comming from bib file
+    String tmpstr;
+
+    tmpstr = allKeyword.replaceAll("\n","");
+    tmpstr = tmpstr.replace("{","");
+    tmpstr = tmpstr.replace("}","");
+    this.keyword= tmpstr.split(", ");
+
   }
 
   public void setAdsurl(String adsurl) {
