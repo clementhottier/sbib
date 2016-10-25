@@ -1,6 +1,6 @@
 public class BibEntry {
   // class containning all interesting field of a bibtex entry 
-  private String auhtor[];
+  private String author[];
   private String firstAuthor;
   private String title;
   private int    year;
@@ -13,8 +13,8 @@ public class BibEntry {
   public BibEntry() {
   }
 
-  public BibEntry(String auhtor[], String title, int year, String editor, String[] keyword, String adsurl) {
-    this.auhtor = auhtor;
+  public BibEntry(String author[], String title, int year, String editor, String[] keyword, String adsurl) {
+    this.author = author;
     this.title = title;
     this.year = year;
     this.editor = editor;
@@ -24,12 +24,27 @@ public class BibEntry {
   }
 
   //setter
-  public void setAuhtor(String[] auhtor) {
-    this.auhtor = auhtor;
+  public void setAuthor(String[] author) {
+    this.author = author;
+    this.setFirstAuthor();
+  }
+
+  public void setAuthor(String allAuthor){
+    //this setter just need the author list, as one String, comming from bib file to create the author tab
+    String tmpstr;
+
+    tmpstr = allAuthor.replaceAll("\n","");
+    tmpstr = tmpstr.replace("{","");
+    tmpstr = tmpstr.replace("}","");
+    tmpstr = tmpstr.replace(" ","");
+    tmpstr = tmpstr.replace("~","");
+    tmpstr = tmpstr.replace(".-","-");
+    this.author= tmpstr.split("and");
+    this.setFirstAuthor();
   }
 
   public void setFirstAuthor() {
-    this.firstAuthor = auhtor[0];
+    this.firstAuthor = author[0];
   }
 
   public void setTitle(String title) {
@@ -54,8 +69,8 @@ public class BibEntry {
   }
 
   //getter
-  public String[] getAuhtor() {
-    return auhtor;
+  public String[] getAuthor() {
+    return author;
   }
 
   public String getTitle() {
@@ -81,5 +96,7 @@ public class BibEntry {
   public String getFirstAuthor() {
     return firstAuthor;
   }
+
+  // Other method
 
 }
