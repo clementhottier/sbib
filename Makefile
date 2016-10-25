@@ -4,7 +4,8 @@ JR = java
 
 all : Test
 
-Test : BibEntry.class
+Test : Test.java BibEntry.class
+	$(JC) Test.java
 
 
 BibEntry.class : BibEntry.java 

@@ -1,4 +1,4 @@
-abstract class BibEntry {
+public class BibEntry {
   // class containning all interesting field of a bibtex entry 
   private String auhtor[];
   private String firstAuthor;
