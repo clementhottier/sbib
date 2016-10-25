@@ -11,3 +11,5 @@ Test : Test.java BibEntry.class
 BibEntry.class : BibEntry.java 
 	$(JC) $^
 
+run : Test
+	$(JR) $^
