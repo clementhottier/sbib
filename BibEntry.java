@@ -20,6 +20,7 @@ public class BibEntry {
     this.editor = editor;
     this.keyword = keyword;
     this.adsurl = adsurl;
+    this.setFirstAuthor();
   }
 
   //setter
@@ -27,8 +28,8 @@ public class BibEntry {
     this.auhtor = auhtor;
   }
 
-  public void setFirstAuthor(String firstAuthor) {
-    this.firstAuthor = firstAuthor;
+  public void setFirstAuthor() {
+    this.firstAuthor = auhtor[0];
   }
 
   public void setTitle(String title) {
