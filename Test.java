@@ -9,8 +9,9 @@ public class Test {
 
     art.setAuthor(allAuthor);
     art.setKeyword(allKey);
-    System.out.println(art.getAuthorString());
-    System.out.println(art.getKeywordString());
+    article.setAuthor(allAuthor);
+    System.out.println(article.toString());
   }
+
 
 }

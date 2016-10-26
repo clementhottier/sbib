@@ -166,14 +166,19 @@ public class BibEntry {
         break;
     }
 
-    str = str + this.title +"\n";
+    str += this.title +"\n";
 
     if (this.author.length>3){
-      str=str+this.firstAuthor+"\n";
+      str+=this.firstAuthor+" et. al.\n";
     }
     else {
-      str=str+this.getAuthorString()+"\n";
+      str+=this.getAuthorString()+"\n";
     }
+    
+    str+= this.year+"\n";
+    str+= this.editor+"\n";
+    str+= "Keywords: "+this.getKeywordString()+"\n";
+    str+= this.adsurl+"\n";
 
     return str;
 
