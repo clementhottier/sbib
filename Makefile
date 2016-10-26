@@ -13,5 +13,5 @@ SBib : BibEntry.class SBib.java
 BibEntry.class : BibEntry.java 
 	$(JC) $^
 
-run : Test
+run : SBib 
 	$(JR) $^
