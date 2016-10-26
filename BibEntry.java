@@ -177,12 +177,34 @@ public class BibEntry {
     else {
       str+=this.getAuthorString()+"\n";
     }
-    
+
     str+= this.year+"\n";
     str+= this.editor+"\n";
     str+= "Keywords: "+this.getKeywordString()+"\n";
     str+= this.adsurl+"\n";
 
     return str;
+  }
+
+  // Searching Method
+  public boolean isWriteBy(String iiAuthor){
+    //this method check if iiAuthor is a author of the bibEntry
+    for (String bla : this.author){
+      if (bla.toLowerCase().contains(iiAuthor.toLowerCase())){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public boolean isWriteBy(String[] iiAuthor){
+    // this method accept a table of author
+    boolean tmp=true;
+
+    for (String bla : iiAuthor){
+      tmp = tmp && this.getAuthorString().toLowerCase().contains(bla.toLowerCase());
+    }
+
+    return tmp;
   }
 }

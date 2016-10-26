@@ -4,6 +4,8 @@ public class Test {
     String tabKey[] = {"Modeling","Galaxy"};
     String allAuthor = "{{Bovy}, J. and {Rix}, H.-W. and {Green}, G.~M. and {Schlafly}, E.~F. and \n{Finkbeiner}, D.~P.}";
     String allKey = "{dust, extinction, Galaxy: kinematics and dynamics, Galaxy:\nstructure, methods: data analysis, stars: statistics, surveys}";
+    String toto="Une longue phrase qui dure";
+    String tata="phrase";
     BibEntry article = new BibEntry("article",tabAuthor,"Modeling The Galaxy",2006,"AA",tabKey,"www.ads.com");
     BibEntry art = new BibEntry();
 
@@ -11,6 +13,8 @@ public class Test {
     art.setKeyword(allKey);
     article.setAuthor(allAuthor);
     System.out.println(article.toString());
+    System.out.println("test");
+    System.out.println(true && false);
   }
 
 
