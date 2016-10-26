@@ -45,6 +45,7 @@ public class BibEntry {
     tmpstr = tmpstr.replace(" ","");
     tmpstr = tmpstr.replace("~","");
     tmpstr = tmpstr.replace(".-","-");
+
     this.author= tmpstr.split("and");
     this.setFirstAuthor();
   }
@@ -76,8 +77,8 @@ public class BibEntry {
     tmpstr = allKeyword.replaceAll("\n","");
     tmpstr = tmpstr.replace("{","");
     tmpstr = tmpstr.replace("}","");
-    this.keyword= tmpstr.split(", ");
 
+    this.keyword= tmpstr.split(", ");
   }
 
   public void setAdsurl(String adsurl) {
@@ -106,6 +107,7 @@ public class BibEntry {
       }
       i++;
     }
+
     return str;
   }
 
@@ -138,6 +140,7 @@ public class BibEntry {
       }
       i++;
     }
+
     return str;
   }
 
@@ -181,6 +184,5 @@ public class BibEntry {
     str+= this.adsurl+"\n";
 
     return str;
-
   }
 }
