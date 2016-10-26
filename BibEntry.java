@@ -1,5 +1,6 @@
 public class BibEntry {
   // class containning all interesting field of a bibtex entry 
+  private String type;
   private String author[];
   private String firstAuthor;
   private String title;
@@ -24,6 +25,10 @@ public class BibEntry {
   }
 
   //setter
+  public void setType(String type) {
+    this.type = type;
+  }
+
   public void setAuthor(String[] author) {
     this.author = author;
     this.setFirstAuthor();
@@ -107,6 +112,11 @@ public class BibEntry {
     return firstAuthor;
   }
 
+  public String getType() {
+    return type;
+  }
+
   // Other method
+
 
 }
