@@ -188,13 +188,7 @@ public class BibEntry {
 
   // Searching Method
   public boolean isWritedBy(String iAuthor){
-    //this method check if iAuthor is a author of the bibEntry
-    for (String bla : this.author){
-      if (bla.toLowerCase().contains(iAuthor.toLowerCase())){
-        return true;
-      }
-    }
-    return false;
+    return this.getAuthorString().toLowerCase().contains(iAuthor.toLowerCase());
   }
 
   public boolean isWritedBy(String[] iAuthor){
@@ -213,7 +207,22 @@ public class BibEntry {
     return this.title.toLowerCase().contains(iTitle.toLowerCase());
   }
 
-  public boolean isYear(int iYear){
+  public boolean isYeared(int iYear){
     return (iYear == this.year);
+  }
+
+  public boolean isKeyworded(String iKeyword){
+    //check if iKeyword take place in the BibEntry keywords
+    return this.getKeywordString().toLowerCase().contains(iKeyword.toLowerCase());
+  }
+
+  public boolean isKeyworded(String[] iKeyword){
+    boolean tmp = true;
+
+    for (String bla : iKeyword){
+      tmp = tmp && this.getKeywordString().toLowerCase().contains(bla.toLowerCase());
+    }
+
+    return tmp;
   }
 }
