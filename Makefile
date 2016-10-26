@@ -2,11 +2,13 @@
 JC=javac
 JR = java
 
-all : Test
+all : SBib
 
-Test : Test.java BibEntry.class
+Test : BibEntry.class Test.java 
 	$(JC) Test.java
 
+SBib : BibEntry.class SBib.java
+	$(JC) SBib.java
 
 BibEntry.class : BibEntry.java 
 	$(JC) $^
