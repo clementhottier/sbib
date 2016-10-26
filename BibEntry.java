@@ -187,24 +187,33 @@ public class BibEntry {
   }
 
   // Searching Method
-  public boolean isWriteBy(String iiAuthor){
-    //this method check if iiAuthor is a author of the bibEntry
+  public boolean isWritedBy(String iAuthor){
+    //this method check if iAuthor is a author of the bibEntry
     for (String bla : this.author){
-      if (bla.toLowerCase().contains(iiAuthor.toLowerCase())){
+      if (bla.toLowerCase().contains(iAuthor.toLowerCase())){
         return true;
       }
     }
     return false;
   }
 
-  public boolean isWriteBy(String[] iiAuthor){
+  public boolean isWritedBy(String[] iAuthor){
     // this method accept a table of author
     boolean tmp=true;
 
-    for (String bla : iiAuthor){
+    for (String bla : iAuthor){
       tmp = tmp && this.getAuthorString().toLowerCase().contains(bla.toLowerCase());
     }
 
     return tmp;
+  }
+
+  public boolean isTitled(String iTitle){
+  // is the iTitle is in the title ?
+    return this.title.toLowerCase().contains(iTitle.toLowerCase());
+  }
+
+  public boolean isYear(int iYear){
+    return (iYear == this.year);
   }
 }
