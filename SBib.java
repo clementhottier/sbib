@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class SBib {
@@ -14,19 +15,29 @@ public class SBib {
   }
 
   public static ArrayList readFile(String bibPath){
-  // method to read bibFile and put all the Entry in a list containing BibEntry instanc
-  ArrayList bibList = new ArrayList();
+    // method to read bibFile and put all the Entry in a list containing BibEntry instanc
+    ArrayList bibList = new ArrayList();
+    BufferedReader bibReader = null;
+    
     try {
-      BufferedReader bibReader = new BufferedReader(new FileReader(new File(bibPath)));
+      bibReader = new BufferedReader(new FileReader(new File(bibPath)));
     }
+
     catch (FileNotFoundException e){
-      System.out.println("file "+bibFile.toString()+" not found");
+      System.out.println("file "+bibPath+" not found");
     }
+    
     finally{
-      if (bibReader!=null){
-        bibReader.close();
+      try {
+        if (bibReader!=null){
+          bibReader.close();
+        }
+      }
+      catch(IOException e) {
+        e.printStackTrace();
       }
     }
-  return bibList;
+
+    return bibList;
   }
 }
