@@ -14,13 +14,14 @@ public class BibEntry {
   public BibEntry() {
   }
 
-  public BibEntry(String author[], String title, int year, String editor, String[] keyword, String adsurl) {
-    this.author = author;
-    this.title = title;
-    this.year = year;
-    this.editor = editor;
+  public BibEntry(String type, String author[], String title, int year, String editor, String[] keyword, String adsurl) {
+    this.type    = type;
+    this.author  = author;
+    this.title   = title;
+    this.year    = year;
+    this.editor  = editor;
     this.keyword = keyword;
-    this.adsurl = adsurl;
+    this.adsurl  = adsurl;
     this.setFirstAuthor();
   }
 
@@ -84,8 +85,28 @@ public class BibEntry {
   }
 
   //getter
+  public String getType() {
+    return type;
+  }
+
   public String[] getAuthor() {
     return author;
+  }
+
+  public String getAuthorString(){
+    String str="";
+    int i=0;
+
+    for (String bla : this.author){
+      if (i<this.author.length-1){
+        str += bla +" ";
+      }
+      else{
+        str +="and " + bla;
+      }
+      i++;
+    }
+    return str;
   }
 
   public String getTitle() {
@@ -104,6 +125,22 @@ public class BibEntry {
     return keyword;
   }
 
+  public String getKeywordString(){
+    String str="";
+    int i=0;
+
+    for (String bla : this.keyword){
+      if (i < this.keyword.length-1){
+      str += bla +", ";
+      }
+      else{
+        str += bla;
+      }
+      i++;
+    }
+    return str;
+  }
+
   public String getAdsurl() {
     return adsurl;
   }
@@ -112,11 +149,33 @@ public class BibEntry {
     return firstAuthor;
   }
 
-  public String getType() {
-    return type;
-  }
-
   // Other method
 
+  public String toString(){
+    String str;
 
+    switch (this.type.toLowerCase()){
+      case "article":
+        str = "Article:\n";
+        break;
+      case "book":
+        str = "Book:\n";
+        break;
+      default:
+        str = "";
+        break;
+    }
+
+    str = str + this.title +"\n";
+
+    if (this.author.length>3){
+      str=str+this.firstAuthor+"\n";
+    }
+    else {
+      str=str+this.getAuthorString()+"\n";
+    }
+
+    return str;
+
+  }
 }
