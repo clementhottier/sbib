@@ -1,3 +1,4 @@
+package sbib;
 public class BibEntry {
   // class containning all interesting field of a bibtex entry 
   private String type;
